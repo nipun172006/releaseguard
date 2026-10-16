@@ -19,24 +19,15 @@ This folder contains the editable project presentation and verified evidence for
 - `evidence/ghcr-backend.png` — public backend image with immutable commit-SHA tag.
 - `evidence/ghcr-frontend.png` — public frontend image with immutable commit-SHA tag.
 - `evidence/prometheus-target-up.png` — healthy `releaseguard-backend` scrape target.
+- `evidence/grafana-dashboard.png` — populated application-metrics dashboard.
+- `evidence/docker-compose.png` — healthy local database, backend, and frontend containers.
+- `evidence/tests-passed.png` — 24 passing backend tests with the 90% coverage gate satisfied.
 
 The AWS resources have already been destroyed. Do **not** recreate them for the video; show the saved evidence instead.
 
-## Manual screenshots still required
+## Evidence status
 
-Capture these yourself so the final evidence set covers every grading category. Save each PNG in `demo/evidence/` with the suggested filename.
-
-1. **Detailed tests — `tests-passed.png`**
-   - Open the successful GitHub Actions run or run `cd backend && .venv/bin/python -m pytest` if the local test database is available.
-   - Capture the passing test count and the coverage result.
-2. **Docker Compose — `docker-compose.png`**
-   - Run `docker compose ps` from the repository root.
-   - Capture the healthy frontend, backend, and database containers.
-3. **Grafana — `grafana-dashboard.png`**
-   - Open <http://127.0.0.1:3000> and select **ReleaseGuard Application Metrics**.
-   - Generate a little traffic by refreshing <http://127.0.0.1:5173> several times, then capture the three populated panels.
-
-If a local page does not open, check whether its port-forward is still running before changing any configuration.
+The required screenshots are complete. Browser evidence is cropped to the application or service UI, and desktop command evidence is cropped to the Terminal window.
 
 ## Final video
 

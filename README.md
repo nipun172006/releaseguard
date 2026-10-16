@@ -240,7 +240,10 @@ The `releaseguard-backend` Prometheus target was verified `UP`, the Grafana data
 - [Successful GitHub Actions pipeline](demo/evidence/github-actions.png)
 - [Backend GHCR package](demo/evidence/ghcr-backend.png)
 - [Frontend GHCR package](demo/evidence/ghcr-frontend.png)
+- [Docker Compose health](demo/evidence/docker-compose.png)
+- [Backend tests and coverage](demo/evidence/tests-passed.png)
 - [Prometheus target health](demo/evidence/prometheus-target-up.png)
+- [Grafana application dashboard](demo/evidence/grafana-dashboard.png)
 
 The narrated MP4 walkthrough is the final user-recorded submission artifact. Its demo order is: presentation, codebase, GitHub Actions, Terraform and AWS, Argo CD, Kubernetes resources, Prometheus target, Grafana dashboard, and teardown evidence.
 
