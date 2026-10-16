@@ -6,7 +6,7 @@ This folder creates the AWS foundation used by ReleaseGuard:
 - two public subnets across two availability zones;
 - one internet gateway;
 - one Amazon EKS control plane; and
-- one managed node group containing one `t3.large` worker node.
+- one managed node group containing one `m7i-flex.large` worker node.
 
 The design follows the course's module-based Terraform structure. It stays intentionally small: there is no NAT gateway, remote state backend, custom KMS key, extra node group, or cluster autoscaling add-on.
 
@@ -14,7 +14,7 @@ The design follows the course's module-based Terraform structure. It stays inten
 
 The course reference places worker nodes in private subnets and uses a NAT gateway for outbound traffic. That is a good production pattern, but a NAT gateway has an hourly charge. This short-lived learning cluster instead places its single worker node in the public subnets and does not create a NAT gateway. The EKS security group still controls inbound traffic to the node.
 
-The VPC still spans two availability zones because EKS expects a multi-zone network and the grading rubric requires at least two public subnets. One `t3.large` node provides enough memory for the application, ArgoCD, Prometheus, and Grafana during the final demonstration without paying for a second node. This trades high availability for lower cost and is appropriate only for a temporary student environment.
+The VPC still spans two availability zones because EKS expects a multi-zone network and the grading rubric requires at least two public subnets. One `m7i-flex.large` node provides enough memory for the application, ArgoCD, Prometheus, and Grafana during the final demonstration without paying for a second node. AWS reports this type as Free Tier eligible for this account in `ap-south-1`; eligibility can vary by account and region, so verify it before applying. This trades high availability for lower cost and is appropriate only for a temporary student environment.
 
 ## What each file does
 

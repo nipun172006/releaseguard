@@ -49,7 +49,7 @@ variable "public_subnet_cidrs" {
 variable "node_instance_type" {
   description = "EC2 instance type used by the EKS managed node group."
   type        = string
-  default     = "t3.large"
+  default     = "m7i-flex.large"
 }
 
 variable "node_min_size" {

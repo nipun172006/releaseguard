@@ -20,7 +20,7 @@ The approved product definition is documented in [docs/PRODUCT_SPEC.md](docs/PRO
 - [x] Step 6 — Frontend
 - [x] Step 7 — Docker and local stack
 - [x] Step 8 — CI/CD and security scanning
-- [ ] Step 9 — Terraform and AWS EKS
+- [x] Step 9 — Terraform and AWS EKS
 - [x] Step 10 — Kubernetes and Helm
 - [x] Step 11 — ArgoCD GitOps
 - [x] Step 12 — Prometheus and Grafana
@@ -38,7 +38,7 @@ The current ReleaseGuard foundation includes:
 - A responsive React and TypeScript control center with statistics, server-backed filters, complete release CRUD, readiness controls, and lifecycle actions.
 - Production-style, non-root backend and frontend images orchestrated with PostgreSQL through Docker Compose.
 - An ordered GitHub Actions pipeline that tests, builds, scans both images with Trivy, and publishes verified Git-SHA tags to GHCR.
-- A validated, cost-conscious Terraform plan for a two-subnet AWS VPC, EKS cluster, and managed worker node group.
+- A Terraform-managed AWS deployment verified with a two-subnet VPC, EKS control plane, healthy managed worker node, and the complete ReleaseGuard Helm release.
 - A Helm-managed Kubernetes deployment with isolated namespace, two frontend replicas, two backend replicas, PostgreSQL, ClusterIP Services, health probes, and path-based Ingress routing.
 - An Argo CD Application with automated synchronization, pruning, and verified self-healing from the public Git repository.
 - Prometheus application metrics and a provisioned Grafana dashboard for request count, request rate, and request duration.
@@ -61,4 +61,4 @@ releaseguard/
 └── compose.yaml  Complete local three-service stack
 ```
 
-See [docs/LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md) for manual development, [docs/DOCKER.md](docs/DOCKER.md) for the container workflow, [docs/FRONTEND.md](docs/FRONTEND.md) for the dashboard architecture, [docs/CI_CD.md](docs/CI_CD.md) for the delivery and security gates, [terraform/README.md](terraform/README.md) for the AWS infrastructure design and commands, [docs/KUBERNETES.md](docs/KUBERNETES.md) for Kubernetes and Helm, [docs/ARGOCD.md](docs/ARGOCD.md) for GitOps, and [docs/OBSERVABILITY.md](docs/OBSERVABILITY.md) for Prometheus and Grafana.
+See [docs/LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md) for manual development, [docs/DOCKER.md](docs/DOCKER.md) for the container workflow, [docs/FRONTEND.md](docs/FRONTEND.md) for the dashboard architecture, [docs/CI_CD.md](docs/CI_CD.md) for the delivery and security gates, [terraform/README.md](terraform/README.md) for the AWS infrastructure design and commands, [docs/AWS_DEPLOYMENT.md](docs/AWS_DEPLOYMENT.md) for the verified AWS evidence run, [docs/KUBERNETES.md](docs/KUBERNETES.md) for Kubernetes and Helm, [docs/ARGOCD.md](docs/ARGOCD.md) for GitOps, and [docs/OBSERVABILITY.md](docs/OBSERVABILITY.md) for Prometheus and Grafana.
