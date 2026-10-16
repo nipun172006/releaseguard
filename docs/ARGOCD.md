@@ -42,6 +42,8 @@ The expected result is `Synced / Healthy`.
 
 The local Application uses `values-local.yaml`, whose images are already loaded into Minikube. The default `values.yaml` points to the public, immutable Git-SHA image tags in GHCR and will be used for the later EKS deployment.
 
+Self-healing was verified locally by changing the backend Deployment from two replicas to one. Argo CD detected the cluster drift, ran an automated sync, and restored the Git-defined two replicas. This is the practical difference between storing YAML in Git and operating a GitOps reconciliation loop.
+
 ## Open the user interface
 
 Argo CD is deliberately kept behind a ClusterIP Service, so installing it does not create a paid cloud load balancer. For local access:

@@ -22,7 +22,7 @@ The approved product definition is documented in [docs/PRODUCT_SPEC.md](docs/PRO
 - [x] Step 8 — CI/CD and security scanning
 - [ ] Step 9 — Terraform and AWS EKS
 - [x] Step 10 — Kubernetes and Helm
-- [ ] Step 11 — ArgoCD GitOps
+- [x] Step 11 — ArgoCD GitOps
 - [ ] Step 12 — Prometheus and Grafana
 - [ ] Step 13 — Evidence, documentation, and presentation
 
@@ -40,6 +40,7 @@ The current ReleaseGuard foundation includes:
 - An ordered GitHub Actions pipeline that tests, builds, scans both images with Trivy, and publishes verified Git-SHA tags to GHCR.
 - A validated, cost-conscious Terraform plan for a two-subnet AWS VPC, EKS cluster, and managed worker node group.
 - A Helm-managed Kubernetes deployment with isolated namespace, two frontend replicas, two backend replicas, PostgreSQL, ClusterIP Services, health probes, and path-based Ingress routing.
+- An Argo CD Application with automated synchronization, pruning, and verified self-healing from the public Git repository.
 - Pinned Python and JavaScript dependency trees.
 - Secret-safe example environment files and repository ignore rules.
 - Local runtime baselines of Python 3.12 and Node.js 22.
