@@ -14,7 +14,7 @@ The approved product definition is documented in [docs/PRODUCT_SPEC.md](docs/PRO
 - [x] Step 2 — Environment and account preflight
 - [x] Step 3 — Repository and application bootstrap
 - [x] Step 4 — Backend and database
-- [ ] Step 5 — Automated tests
+- [x] Step 5 — Automated tests
 - [ ] Step 6 — Frontend
 - [ ] Step 7 — Docker and local stack
 - [ ] Step 8 — CI/CD and security scanning
@@ -32,6 +32,7 @@ The current ReleaseGuard foundation includes:
 - PostgreSQL persistence managed through versioned Alembic migrations.
 - Release create, list, search, filter, retrieve, update, delete, statistics, and readiness APIs.
 - Deterministic readiness scoring, risk classification, blocker explanations, and lifecycle enforcement.
+- A 23-test backend suite with real PostgreSQL integration and a 90% coverage gate.
 - A React and TypeScript interface that performs a real backend health check.
 - Pinned Python and JavaScript dependency trees.
 - Secret-safe example environment files and repository ignore rules.

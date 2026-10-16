@@ -51,7 +51,7 @@ function App() {
           <span className="brand-mark">RG</span>
           <span>ReleaseGuard</span>
         </a>
-        <span className="phase-label">Foundation · Step 4</span>
+        <span className="phase-label">Foundation · Step 5</span>
       </nav>
 
       <section className="hero">
@@ -83,19 +83,19 @@ function App() {
         <article className="status-card">
           <div className="card-heading">
             <span>Current milestone</span>
-            <span className="step-number">04</span>
+            <span className="step-number">05</span>
           </div>
-          <strong>Release intelligence</strong>
-          <p>PostgreSQL, CRUD, scoring, blockers, and lifecycle guardrails.</p>
+          <strong>Automated confidence</strong>
+          <p>23 backend tests with real PostgreSQL and a 90% coverage gate.</p>
         </article>
 
         <article className="status-card">
           <div className="card-heading">
             <span>Next milestone</span>
-            <span className="step-number">05</span>
+            <span className="step-number">06</span>
           </div>
-          <strong>Automated tests</strong>
-          <p>Turn every success and failure path into repeatable evidence.</p>
+          <strong>Frontend dashboard</strong>
+          <p>Turn release evidence and risk into a useful operator workflow.</p>
         </article>
       </section>
     </main>

@@ -1,6 +1,6 @@
 # Local Development
 
-This document explains how to run the Step 4 ReleaseGuard application locally. PostgreSQL temporarily runs in Docker; full application containerization and Docker Compose will be added in Step 7.
+This document explains how to run and test the Step 5 ReleaseGuard application locally. PostgreSQL temporarily runs in Docker; full application containerization and Docker Compose will be added in Step 7.
 
 ## Why the project has two applications
 
@@ -76,6 +76,36 @@ Check that the SQLAlchemy models and migrated database have not drifted apart:
 
 The application never creates production tables automatically at startup. Explicit migrations make schema changes visible in code review and repeatable in CI/CD.
 
+## Run the automated tests
+
+Create a separate test database once while the development PostgreSQL container is running:
+
+```bash
+docker exec releaseguard-postgres-dev \
+  createdb --username releaseguard releaseguard_test
+```
+
+If PostgreSQL says the database already exists, no action is needed. Install the test dependency lock and run the suite from `backend/`:
+
+```bash
+cd backend
+.venv/bin/python -m pip install -r requirements-dev.lock.txt
+export RELEASEGUARD_TEST_DATABASE_URL='postgresql+psycopg://releaseguard:CHANGE_ME_LOCAL_ONLY@localhost:5432/releaseguard_test'
+.venv/bin/python -m pytest
+```
+
+Replace `CHANGE_ME_LOCAL_ONLY` with the same local-only password used by the PostgreSQL container. Do not save the real value in a tracked file.
+
+The suite has three complementary layers:
+
+- `tests/test_readiness.py` tests scoring and risk rules as fast, database-free unit tests.
+- `tests/test_releases_api.py` sends real HTTP requests through FastAPI and verifies validation, CRUD, filtering, lifecycle rules, readiness, and statistics.
+- `tests/test_system_api.py` verifies liveness/readiness behavior, including the database-unavailable failure path.
+
+The fixtures reject any database whose name does not end in `_test`. They create the schema once and wrap each test in a database transaction that is rolled back afterward. This gives each test clean data without touching the development database.
+
+Coverage measures which application statements and decision branches the tests execute. `pyproject.toml` makes the command fail below 90%, turning coverage into an enforceable quality gate rather than an optional report.
+
 ## Run the frontend
 
 In a second terminal, from the repository root:
@@ -99,10 +129,12 @@ cp frontend/.env.example frontend/.env
 
 The backend database URL is required, so copy its example before starting the API and replace the password placeholder. Real `.env` files are ignored by Git because they can contain credentials. Example files are committed because they document required variable names without containing secrets.
 
-## Why there are two dependency files per ecosystem
+## Why dependency intent and lock files are separate
 
 - `backend/requirements.txt` lists the Python packages we intentionally chose.
 - `backend/requirements.lock.txt` records the exact resolved Python package tree used by automation.
+- `backend/requirements-dev.txt` adds packages used only for tests and coverage.
+- `backend/requirements-dev.lock.txt` pins the complete test environment used locally and in CI.
 - `frontend/package.json` lists the JavaScript packages we intentionally chose.
 - `frontend/package-lock.json` records the exact resolved JavaScript package tree used by `npm ci`.
 
