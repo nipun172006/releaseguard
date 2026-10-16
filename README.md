@@ -1,5 +1,7 @@
 # ReleaseGuard
 
+[![CI/CD](https://github.com/nipun172006/releaseguard/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/nipun172006/releaseguard/actions/workflows/ci-cd.yml)
+
 **Deployment readiness and release-risk control center.**
 
 ReleaseGuard helps engineering teams decide whether a software release is safe to deploy. It records release metadata, evaluates operational readiness checks, calculates a transparent readiness score and risk level, and tracks the release from draft through deployment or rollback.
@@ -17,7 +19,7 @@ The approved product definition is documented in [docs/PRODUCT_SPEC.md](docs/PRO
 - [x] Step 5 — Automated tests
 - [x] Step 6 — Frontend
 - [x] Step 7 — Docker and local stack
-- [ ] Step 8 — CI/CD and security scanning
+- [x] Step 8 — CI/CD and security scanning
 - [ ] Step 9 — Terraform and AWS EKS
 - [ ] Step 10 — Kubernetes and Helm
 - [ ] Step 11 — ArgoCD GitOps
@@ -35,6 +37,7 @@ The current ReleaseGuard foundation includes:
 - A 23-test backend suite with real PostgreSQL integration and a 90% coverage gate.
 - A responsive React and TypeScript control center with statistics, server-backed filters, complete release CRUD, readiness controls, and lifecycle actions.
 - Production-style, non-root backend and frontend images orchestrated with PostgreSQL through Docker Compose.
+- An ordered GitHub Actions pipeline that tests, builds, scans both images with Trivy, and publishes verified Git-SHA tags to GHCR.
 - Pinned Python and JavaScript dependency trees.
 - Secret-safe example environment files and repository ignore rules.
 - Local runtime baselines of Python 3.12 and Node.js 22.
@@ -49,4 +52,4 @@ releaseguard/
 └── compose.yaml  Complete local three-service stack
 ```
 
-See [docs/LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md) for manual development, [docs/DOCKER.md](docs/DOCKER.md) for the container workflow, and [docs/FRONTEND.md](docs/FRONTEND.md) for the dashboard architecture.
+See [docs/LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md) for manual development, [docs/DOCKER.md](docs/DOCKER.md) for the container workflow, [docs/FRONTEND.md](docs/FRONTEND.md) for the dashboard architecture, and [docs/CI_CD.md](docs/CI_CD.md) for the delivery and security gates.
