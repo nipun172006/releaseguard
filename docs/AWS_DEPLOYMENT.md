@@ -56,9 +56,9 @@ The failed node group launched no EC2 instance. It was removed, the eligible typ
 
 This is why the instance type is a Terraform variable: account eligibility and regional availability can change, while the infrastructure design remains the same.
 
-## Safe teardown
+## Verified safe teardown
 
-After the AWS console and workload evidence are recorded:
+After the AWS console and workload evidence were recorded, Terraform planned the destruction of all 46 managed resources:
 
 ```bash
 cd terraform
@@ -66,4 +66,17 @@ terraform plan -destroy
 terraform destroy
 ```
 
-Then verify that `releaseguard-eks` no longer appears in `aws eks list-clusters` and that no EC2 instances or tagged VPC resources remain. Terraform state files and saved plans are intentionally ignored by Git because they are local operational data.
+The first destroy run removed the EKS node group, control plane, IAM resources, subnets, security groups, and add-ons. A transient DNS lookup failure stopped the command before the final internet gateway and VPC deletion. Running the same destroy command again removed those final two resources and reported:
+
+```text
+Destroy complete! Resources: 2 destroyed.
+```
+
+Cleanup was then verified with four independent checks:
+
+- `terraform state list` returned no managed resources.
+- `aws eks list-clusters --region ap-south-1` returned no ReleaseGuard cluster.
+- the `Project=releaseguard` VPC query returned an empty list.
+- the running/stopped EC2 query returned no ReleaseGuard worker instances.
+
+The verification is saved in [the Terraform destroy evidence screenshot](../demo/evidence/terraform-destroy.png). Terraform state files and saved plans are intentionally ignored by Git because they are local operational data.
