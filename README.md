@@ -21,7 +21,7 @@ The approved product definition is documented in [docs/PRODUCT_SPEC.md](docs/PRO
 - [x] Step 7 — Docker and local stack
 - [x] Step 8 — CI/CD and security scanning
 - [ ] Step 9 — Terraform and AWS EKS
-- [ ] Step 10 — Kubernetes and Helm
+- [x] Step 10 — Kubernetes and Helm
 - [ ] Step 11 — ArgoCD GitOps
 - [ ] Step 12 — Prometheus and Grafana
 - [ ] Step 13 — Evidence, documentation, and presentation
@@ -39,6 +39,7 @@ The current ReleaseGuard foundation includes:
 - Production-style, non-root backend and frontend images orchestrated with PostgreSQL through Docker Compose.
 - An ordered GitHub Actions pipeline that tests, builds, scans both images with Trivy, and publishes verified Git-SHA tags to GHCR.
 - A validated, cost-conscious Terraform plan for a two-subnet AWS VPC, EKS cluster, and managed worker node group.
+- A Helm-managed Kubernetes deployment with isolated namespace, two frontend replicas, two backend replicas, PostgreSQL, ClusterIP Services, health probes, and path-based Ingress routing.
 - Pinned Python and JavaScript dependency trees.
 - Secret-safe example environment files and repository ignore rules.
 - Local runtime baselines of Python 3.12 and Node.js 22.
@@ -51,7 +52,9 @@ releaseguard/
 ├── frontend/     React application and Nginx production image
 ├── docs/         Product, setup, and delivery documentation
 ├── terraform/    AWS VPC and EKS infrastructure as code
+├── k8s/          Kubernetes namespace bootstrap manifest
+├── helm/         ReleaseGuard application Helm chart
 └── compose.yaml  Complete local three-service stack
 ```
 
-See [docs/LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md) for manual development, [docs/DOCKER.md](docs/DOCKER.md) for the container workflow, [docs/FRONTEND.md](docs/FRONTEND.md) for the dashboard architecture, [docs/CI_CD.md](docs/CI_CD.md) for the delivery and security gates, and [terraform/README.md](terraform/README.md) for the AWS infrastructure design and commands.
+See [docs/LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md) for manual development, [docs/DOCKER.md](docs/DOCKER.md) for the container workflow, [docs/FRONTEND.md](docs/FRONTEND.md) for the dashboard architecture, [docs/CI_CD.md](docs/CI_CD.md) for the delivery and security gates, [terraform/README.md](terraform/README.md) for the AWS infrastructure design and commands, and [docs/KUBERNETES.md](docs/KUBERNETES.md) for Kubernetes and Helm.

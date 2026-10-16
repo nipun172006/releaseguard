@@ -275,7 +275,7 @@ function App() {
           <a href={`${getApiBaseUrl()}/docs`} target="_blank" rel="noreferrer">
             API documentation <span>↗</span>
           </a>
-          <span>ReleaseGuard · Step 8</span>
+          <span>ReleaseGuard · DevSecOps capstone</span>
         </div>
       </aside>
 
