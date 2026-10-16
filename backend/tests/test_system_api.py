@@ -29,6 +29,17 @@ def test_health_reports_the_test_environment(client: TestClient) -> None:
     }
 
 
+def test_metrics_exposes_prometheus_output(client: TestClient) -> None:
+    client.get("/health")
+
+    response = client.get("/metrics")
+
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith("text/plain")
+    assert "releaseguard_http_requests_total" in response.text
+    assert "releaseguard_http_request_duration_seconds" in response.text
+
+
 def test_ready_checks_the_real_test_database(client: TestClient) -> None:
     response = client.get("/ready")
 

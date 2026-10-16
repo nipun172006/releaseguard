@@ -1,0 +1,36 @@
+# The capstone needs one Prometheus server scraping ReleaseGuard. Components
+# unrelated to that requirement are disabled to keep the learning cluster small.
+alertmanager:
+  enabled: false
+
+kube-state-metrics:
+  enabled: false
+
+prometheus-node-exporter:
+  enabled: false
+
+prometheus-pushgateway:
+  enabled: false
+
+server:
+  retention: 2h
+  global:
+    scrape_interval: 15s
+    evaluation_interval: 15s
+  persistentVolume:
+    enabled: false
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+extraScrapeConfigs: |
+  - job_name: releaseguard-backend
+    metrics_path: /metrics
+    scrape_interval: 15s
+    static_configs:
+      - targets:
+          - backend.releaseguard.svc.cluster.local:8000

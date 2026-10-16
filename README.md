@@ -56,7 +56,8 @@ releaseguard/
 ├── k8s/          Kubernetes namespace bootstrap manifest
 ├── helm/         ReleaseGuard application Helm chart
 ├── argocd/       GitOps Application bootstrap manifest
+├── monitoring/   Prometheus and Grafana Helm values
 └── compose.yaml  Complete local three-service stack
 ```
 
-See [docs/LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md) for manual development, [docs/DOCKER.md](docs/DOCKER.md) for the container workflow, [docs/FRONTEND.md](docs/FRONTEND.md) for the dashboard architecture, [docs/CI_CD.md](docs/CI_CD.md) for the delivery and security gates, [terraform/README.md](terraform/README.md) for the AWS infrastructure design and commands, [docs/KUBERNETES.md](docs/KUBERNETES.md) for Kubernetes and Helm, and [docs/ARGOCD.md](docs/ARGOCD.md) for GitOps.
+See [docs/LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md) for manual development, [docs/DOCKER.md](docs/DOCKER.md) for the container workflow, [docs/FRONTEND.md](docs/FRONTEND.md) for the dashboard architecture, [docs/CI_CD.md](docs/CI_CD.md) for the delivery and security gates, [terraform/README.md](terraform/README.md) for the AWS infrastructure design and commands, [docs/KUBERNETES.md](docs/KUBERNETES.md) for Kubernetes and Helm, [docs/ARGOCD.md](docs/ARGOCD.md) for GitOps, and [docs/OBSERVABILITY.md](docs/OBSERVABILITY.md) for Prometheus and Grafana.
