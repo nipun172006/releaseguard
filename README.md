@@ -23,7 +23,7 @@ The approved product definition is documented in [docs/PRODUCT_SPEC.md](docs/PRO
 - [ ] Step 9 — Terraform and AWS EKS
 - [x] Step 10 — Kubernetes and Helm
 - [x] Step 11 — ArgoCD GitOps
-- [ ] Step 12 — Prometheus and Grafana
+- [x] Step 12 — Prometheus and Grafana
 - [ ] Step 13 — Evidence, documentation, and presentation
 
 ## Runnable application
@@ -41,6 +41,7 @@ The current ReleaseGuard foundation includes:
 - A validated, cost-conscious Terraform plan for a two-subnet AWS VPC, EKS cluster, and managed worker node group.
 - A Helm-managed Kubernetes deployment with isolated namespace, two frontend replicas, two backend replicas, PostgreSQL, ClusterIP Services, health probes, and path-based Ingress routing.
 - An Argo CD Application with automated synchronization, pruning, and verified self-healing from the public Git repository.
+- Prometheus application metrics and a provisioned Grafana dashboard for request count, request rate, and request duration.
 - Pinned Python and JavaScript dependency trees.
 - Secret-safe example environment files and repository ignore rules.
 - Local runtime baselines of Python 3.12 and Node.js 22.
