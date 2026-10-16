@@ -236,6 +236,11 @@ The `releaseguard-backend` Prometheus target was verified `UP`, the Grafana data
 - [Verified Terraform destroy evidence](demo/evidence/terraform-destroy.png)
 - [Kubernetes and Helm evidence](demo/evidence/eks-kubernetes-helm.png)
 - [EKS-hosted application evidence](demo/evidence/eks-application.png)
+- [Git commit history](demo/evidence/git-commits.png)
+- [Successful GitHub Actions pipeline](demo/evidence/github-actions.png)
+- [Backend GHCR package](demo/evidence/ghcr-backend.png)
+- [Frontend GHCR package](demo/evidence/ghcr-frontend.png)
+- [Prometheus target health](demo/evidence/prometheus-target-up.png)
 
 The narrated MP4 walkthrough is the final user-recorded submission artifact. Its demo order is: presentation, codebase, GitHub Actions, Terraform and AWS, Argo CD, Kubernetes resources, Prometheus target, Grafana dashboard, and teardown evidence.
 
