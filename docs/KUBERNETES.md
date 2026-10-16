@@ -28,21 +28,23 @@ minikube addons enable ingress
 kubectl apply -f k8s/namespace.yaml
 ```
 
-Build native local images and load them into Minikube:
+Build native local images and load them into Minikube. The tag below is the
+application commit currently referenced by `values-local.yaml`:
 
 ```bash
-docker build -t releaseguard-backend:local backend
-docker build -t releaseguard-frontend:local frontend
-minikube image load releaseguard-backend:local
-minikube image load releaseguard-frontend:local
+docker build -t releaseguard-backend:0a8ae30 backend
+docker build -t releaseguard-frontend:0a8ae30 frontend
+minikube image load releaseguard-backend:0a8ae30
+minikube image load releaseguard-frontend:0a8ae30
 ```
 
 Validate and install the chart:
 
 ```bash
-helm lint helm/releaseguard
+helm lint helm/releaseguard --values helm/releaseguard/values-local.yaml
 helm upgrade --install releaseguard helm/releaseguard \
   --namespace releaseguard \
+  --values helm/releaseguard/values-local.yaml \
   --wait \
   --timeout 5m
 ```
@@ -63,6 +65,10 @@ kubectl port-forward -n releaseguard service/frontend 5173:8080
 ```
 
 Then open `http://localhost:5173`. The Minikube ingress is tested separately to prove the path-routing requirement.
+
+## Image configuration
+
+`values.yaml` uses public GHCR images with an immutable full Git commit tag, which is appropriate for EKS. `values-local.yaml` overrides only the frontend and backend image locations so Minikube can use the copies loaded from this laptop.
 
 ## Configuration and secrets
 

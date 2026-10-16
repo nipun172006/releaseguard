@@ -1,8 +1,8 @@
 backend:
   replicaCount: 2
   image:
-    repository: releaseguard-backend
-    tag: local
+    repository: ghcr.io/nipun172006/releaseguard-backend
+    tag: 0a8ae305b5bb7380e576b1ed8cc66f57fde98d01
     pullPolicy: IfNotPresent
   port: 8000
   resources:
@@ -16,8 +16,8 @@ backend:
 frontend:
   replicaCount: 2
   image:
-    repository: releaseguard-frontend
-    tag: local
+    repository: ghcr.io/nipun172006/releaseguard-frontend
+    tag: 0a8ae305b5bb7380e576b1ed8cc66f57fde98d01
     pullPolicy: IfNotPresent
   port: 8080
   resources:

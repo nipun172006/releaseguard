@@ -1,0 +1,12 @@
+# Minikube uses images loaded directly from this laptop instead of pulling GHCR.
+backend:
+  image:
+    repository: releaseguard-backend
+    tag: 0a8ae30
+    pullPolicy: IfNotPresent
+
+frontend:
+  image:
+    repository: releaseguard-frontend
+    tag: 0a8ae30
+    pullPolicy: IfNotPresent

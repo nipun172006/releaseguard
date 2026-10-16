@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: releaseguard
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/nipun172006/releaseguard.git
+    targetRevision: main
+    path: helm/releaseguard
+    helm:
+      valueFiles:
+        - values-local.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: releaseguard
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
