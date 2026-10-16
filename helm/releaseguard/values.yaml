@@ -2,7 +2,7 @@ backend:
   replicaCount: 2
   image:
     repository: ghcr.io/nipun172006/releaseguard-backend
-    tag: 0a8ae305b5bb7380e576b1ed8cc66f57fde98d01
+    tag: 0b440da5b1d7ea1c72ece5cf0c227aaefb040bb3
     pullPolicy: IfNotPresent
   port: 8000
   resources:

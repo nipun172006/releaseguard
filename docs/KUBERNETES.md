@@ -32,9 +32,9 @@ Build native local images and load them into Minikube. The tag below is the
 application commit currently referenced by `values-local.yaml`:
 
 ```bash
-docker build -t releaseguard-backend:0a8ae30 backend
+docker build -t releaseguard-backend:0b440da backend
 docker build -t releaseguard-frontend:0a8ae30 frontend
-minikube image load releaseguard-backend:0a8ae30
+minikube image load releaseguard-backend:0b440da
 minikube image load releaseguard-frontend:0a8ae30
 ```
 

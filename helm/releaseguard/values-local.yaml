@@ -2,7 +2,7 @@
 backend:
   image:
     repository: releaseguard-backend
-    tag: 0a8ae30
+    tag: 0b440da
     pullPolicy: IfNotPresent
 
 frontend:
