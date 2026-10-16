@@ -13,7 +13,7 @@ The approved product definition is documented in [docs/PRODUCT_SPEC.md](docs/PRO
 - [x] Step 1 — Product definition and scope
 - [x] Step 2 — Environment and account preflight
 - [x] Step 3 — Repository and application bootstrap
-- [ ] Step 4 — Backend and database
+- [x] Step 4 — Backend and database
 - [ ] Step 5 — Automated tests
 - [ ] Step 6 — Frontend
 - [ ] Step 7 — Docker and local stack
@@ -24,11 +24,14 @@ The approved product definition is documented in [docs/PRODUCT_SPEC.md](docs/PRO
 - [ ] Step 12 — Prometheus and Grafana
 - [ ] Step 13 — Evidence, documentation, and presentation
 
-## Runnable foundation
+## Runnable application
 
-The Step 3 foundation includes:
+The current ReleaseGuard foundation includes:
 
-- A FastAPI service with `/`, `/health`, `/ready`, and interactive `/docs` endpoints.
+- A FastAPI service with database-aware `/ready` and interactive `/docs` endpoints.
+- PostgreSQL persistence managed through versioned Alembic migrations.
+- Release create, list, search, filter, retrieve, update, delete, statistics, and readiness APIs.
+- Deterministic readiness scoring, risk classification, blocker explanations, and lifecycle enforcement.
 - A React and TypeScript interface that performs a real backend health check.
 - Pinned Python and JavaScript dependency trees.
 - Secret-safe example environment files and repository ignore rules.

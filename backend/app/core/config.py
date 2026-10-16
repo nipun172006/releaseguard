@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     app_version: str = "0.1.0"
     environment: Literal["development", "test", "production"] = "development"
     frontend_origin: str = "http://localhost:5173"
+    database_url: str
 
     model_config = SettingsConfigDict(
         env_file=".env",

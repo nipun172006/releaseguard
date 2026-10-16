@@ -51,7 +51,7 @@ function App() {
           <span className="brand-mark">RG</span>
           <span>ReleaseGuard</span>
         </a>
-        <span className="phase-label">Foundation · Step 3</span>
+        <span className="phase-label">Foundation · Step 4</span>
       </nav>
 
       <section className="hero">
@@ -83,19 +83,19 @@ function App() {
         <article className="status-card">
           <div className="card-heading">
             <span>Current milestone</span>
-            <span className="step-number">03</span>
+            <span className="step-number">04</span>
           </div>
-          <strong>Application bootstrap</strong>
-          <p>React and FastAPI now have a clean place to grow.</p>
+          <strong>Release intelligence</strong>
+          <p>PostgreSQL, CRUD, scoring, blockers, and lifecycle guardrails.</p>
         </article>
 
         <article className="status-card">
           <div className="card-heading">
             <span>Next milestone</span>
-            <span className="step-number">04</span>
+            <span className="step-number">05</span>
           </div>
-          <strong>Release intelligence</strong>
-          <p>PostgreSQL, CRUD APIs, scoring, blockers, and transitions.</p>
+          <strong>Automated tests</strong>
+          <p>Turn every success and failure path into repeatable evidence.</p>
         </article>
       </section>
     </main>

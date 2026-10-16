@@ -1,6 +1,6 @@
 # Local Development
 
-This document explains how to run the Step 3 ReleaseGuard foundation without Docker. Dockerized development will be added in Step 7.
+This document explains how to run the Step 4 ReleaseGuard application locally. PostgreSQL temporarily runs in Docker; full application containerization and Docker Compose will be added in Step 7.
 
 ## Why the project has two applications
 
@@ -14,6 +14,28 @@ This document explains how to run the Step 3 ReleaseGuard foundation without Doc
 - Node.js 22 is recorded in `.nvmrc` and will also be used by CI and Docker.
 - A local Node version newer than 22 can be used when it satisfies the package engine requirements, but Node 22 is the reproducible project baseline.
 
+## Run PostgreSQL
+
+Create the development database once:
+
+```bash
+docker run --name releaseguard-postgres-dev \
+  --env POSTGRES_DB=releaseguard \
+  --env POSTGRES_USER=releaseguard \
+  --env POSTGRES_PASSWORD=CHANGE_ME_LOCAL_ONLY \
+  --publish 127.0.0.1:5432:5432 \
+  --volume releaseguard-postgres-data:/var/lib/postgresql/data \
+  --detach postgres:17-alpine
+```
+
+Replace `CHANGE_ME_LOCAL_ONLY` with a password used only on your laptop, and place the same value in your ignored `backend/.env`. Production credentials will come from Kubernetes Secrets and will never be committed.
+
+On later days, start the existing container with:
+
+```bash
+docker start releaseguard-postgres-dev
+```
+
 ## Run the backend
 
 From the repository root:
@@ -22,6 +44,7 @@ From the repository root:
 python3.12 -m venv backend/.venv
 backend/.venv/bin/python -m pip install -r backend/requirements.lock.txt
 cd backend
+.venv/bin/alembic upgrade head
 .venv/bin/uvicorn app.main:app --reload --port 8000
 ```
 
@@ -32,7 +55,26 @@ Useful URLs:
 - Readiness: `http://localhost:8000/ready`
 - Interactive OpenAPI documentation: `http://localhost:8000/docs`
 
-`/health` answers whether the API process is alive. `/ready` will become stricter in Step 4 and check whether PostgreSQL is reachable before Kubernetes sends traffic to the API.
+`/health` answers whether the API process is alive. `/ready` checks both the API and PostgreSQL, so Kubernetes will not send traffic to an instance that cannot access its required database.
+
+The release API is available below `/api/releases`. Use `http://localhost:8000/docs` to create records and explore the generated request and response schemas without writing curl commands.
+
+## Database migrations
+
+Alembic changes the database schema in reviewable, versioned steps. Apply committed migrations with:
+
+```bash
+cd backend
+.venv/bin/alembic upgrade head
+```
+
+Check that the SQLAlchemy models and migrated database have not drifted apart:
+
+```bash
+.venv/bin/alembic check
+```
+
+The application never creates production tables automatically at startup. Explicit migrations make schema changes visible in code review and repeatable in CI/CD.
 
 ## Run the frontend
 
@@ -55,7 +97,7 @@ cp backend/.env.example backend/.env
 cp frontend/.env.example frontend/.env
 ```
 
-Real `.env` files are ignored by Git because they can contain credentials. Example files are committed because they document required variable names without containing secrets.
+The backend database URL is required, so copy its example before starting the API and replace the password placeholder. Real `.env` files are ignored by Git because they can contain credentials. Example files are committed because they document required variable names without containing secrets.
 
 ## Why there are two dependency files per ecosystem
 
