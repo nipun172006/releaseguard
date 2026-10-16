@@ -16,7 +16,7 @@ The approved product definition is documented in [docs/PRODUCT_SPEC.md](docs/PRO
 - [x] Step 4 — Backend and database
 - [x] Step 5 — Automated tests
 - [x] Step 6 — Frontend
-- [ ] Step 7 — Docker and local stack
+- [x] Step 7 — Docker and local stack
 - [ ] Step 8 — CI/CD and security scanning
 - [ ] Step 9 — Terraform and AWS EKS
 - [ ] Step 10 — Kubernetes and Helm
@@ -34,6 +34,7 @@ The current ReleaseGuard foundation includes:
 - Deterministic readiness scoring, risk classification, blocker explanations, and lifecycle enforcement.
 - A 23-test backend suite with real PostgreSQL integration and a 90% coverage gate.
 - A responsive React and TypeScript control center with statistics, server-backed filters, complete release CRUD, readiness controls, and lifecycle actions.
+- Production-style, non-root backend and frontend images orchestrated with PostgreSQL through Docker Compose.
 - Pinned Python and JavaScript dependency trees.
 - Secret-safe example environment files and repository ignore rules.
 - Local runtime baselines of Python 3.12 and Node.js 22.
@@ -42,9 +43,10 @@ The current ReleaseGuard foundation includes:
 
 ```text
 releaseguard/
-├── backend/    FastAPI application and Python dependencies
-├── frontend/   React, TypeScript, and Vite application
-└── docs/       Product, setup, and delivery documentation
+├── backend/      FastAPI application, migrations, tests, and Docker image
+├── frontend/     React application and Nginx production image
+├── docs/         Product, setup, and delivery documentation
+└── compose.yaml  Complete local three-service stack
 ```
 
-See [docs/LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md) for the exact commands and [docs/FRONTEND.md](docs/FRONTEND.md) for the dashboard architecture and workflow.
+See [docs/LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md) for manual development, [docs/DOCKER.md](docs/DOCKER.md) for the container workflow, and [docs/FRONTEND.md](docs/FRONTEND.md) for the dashboard architecture.

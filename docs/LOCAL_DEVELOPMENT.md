@@ -1,12 +1,24 @@
 # Local Development
 
-This document explains how to run and test the Step 6 ReleaseGuard application locally. PostgreSQL temporarily runs in Docker; full application containerization and Docker Compose will be added in Step 7.
+This document explains how to run and test the Step 7 ReleaseGuard application locally. The complete stack can now run through Docker Compose, while the manual commands remain useful when actively developing one service.
 
 ## Why the project has two applications
 
 - `backend/` is the FastAPI service. It owns validation, business rules, persistence, and operational endpoints.
 - `frontend/` is the React application. It owns the user interface and calls the backend over HTTP.
 - Keeping them separate lets CI test, scan, build, and deploy each component independently.
+
+## Fastest way to run everything
+
+Docker Compose starts PostgreSQL, applies Alembic migrations, starts FastAPI, and serves the compiled React application through Nginx:
+
+```bash
+cp .env.example .env
+# Replace CHANGE_ME_LOCAL_ONLY in both values inside .env.
+docker compose up --build --detach --wait
+```
+
+Open `http://localhost:5173`. See [DOCKER.md](DOCKER.md) for the container architecture, health checks, logs, persistence, and shutdown commands.
 
 ## Runtime versions
 

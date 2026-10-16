@@ -275,7 +275,7 @@ function App() {
           <a href={`${getApiBaseUrl()}/docs`} target="_blank" rel="noreferrer">
             API documentation <span>↗</span>
           </a>
-          <span>ReleaseGuard · Step 6</span>
+          <span>ReleaseGuard · Step 7</span>
         </div>
       </aside>
 
@@ -522,7 +522,7 @@ function App() {
 
         <footer className="workspace-footer">
           <span>Ship only when the evidence says ready.</span>
-          <span>API: {getApiBaseUrl()}</span>
+          <span>API: {getApiBaseUrl() || 'same origin'}</span>
         </footer>
       </main>
 
