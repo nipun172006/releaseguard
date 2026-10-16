@@ -38,6 +38,7 @@ The current ReleaseGuard foundation includes:
 - A responsive React and TypeScript control center with statistics, server-backed filters, complete release CRUD, readiness controls, and lifecycle actions.
 - Production-style, non-root backend and frontend images orchestrated with PostgreSQL through Docker Compose.
 - An ordered GitHub Actions pipeline that tests, builds, scans both images with Trivy, and publishes verified Git-SHA tags to GHCR.
+- A validated, cost-conscious Terraform plan for a two-subnet AWS VPC, EKS cluster, and managed worker node group.
 - Pinned Python and JavaScript dependency trees.
 - Secret-safe example environment files and repository ignore rules.
 - Local runtime baselines of Python 3.12 and Node.js 22.
@@ -49,7 +50,8 @@ releaseguard/
 ├── backend/      FastAPI application, migrations, tests, and Docker image
 ├── frontend/     React application and Nginx production image
 ├── docs/         Product, setup, and delivery documentation
+├── terraform/    AWS VPC and EKS infrastructure as code
 └── compose.yaml  Complete local three-service stack
 ```
 
-See [docs/LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md) for manual development, [docs/DOCKER.md](docs/DOCKER.md) for the container workflow, [docs/FRONTEND.md](docs/FRONTEND.md) for the dashboard architecture, and [docs/CI_CD.md](docs/CI_CD.md) for the delivery and security gates.
+See [docs/LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md) for manual development, [docs/DOCKER.md](docs/DOCKER.md) for the container workflow, [docs/FRONTEND.md](docs/FRONTEND.md) for the dashboard architecture, [docs/CI_CD.md](docs/CI_CD.md) for the delivery and security gates, and [terraform/README.md](terraform/README.md) for the AWS infrastructure design and commands.

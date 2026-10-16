@@ -30,5 +30,6 @@ frontend/dist/
 *.tfstate
 *.tfstate.*
 terraform.tfvars
+*.tfplan
 crash.log
 kubeconfig*
