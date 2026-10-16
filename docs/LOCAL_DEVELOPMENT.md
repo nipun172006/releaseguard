@@ -1,6 +1,6 @@
 # Local Development
 
-This document explains how to run and test the Step 5 ReleaseGuard application locally. PostgreSQL temporarily runs in Docker; full application containerization and Docker Compose will be added in Step 7.
+This document explains how to run and test the Step 6 ReleaseGuard application locally. PostgreSQL temporarily runs in Docker; full application containerization and Docker Compose will be added in Step 7.
 
 ## Why the project has two applications
 
@@ -117,6 +117,8 @@ npm run dev
 ```
 
 Open `http://localhost:5173`. The status card calls the backend `/health` endpoint, proving the two applications can communicate.
+
+The Step 6 interface now provides the complete application workflow: dashboard statistics, server-backed search and filters, release creation and editing, readiness evidence controls, detail inspection, allowed lifecycle actions, and draft deletion. See [FRONTEND.md](FRONTEND.md) for the data flow and component responsibilities.
 
 ## Environment files
 

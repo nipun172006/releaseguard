@@ -15,7 +15,7 @@ The approved product definition is documented in [docs/PRODUCT_SPEC.md](docs/PRO
 - [x] Step 3 — Repository and application bootstrap
 - [x] Step 4 — Backend and database
 - [x] Step 5 — Automated tests
-- [ ] Step 6 — Frontend
+- [x] Step 6 — Frontend
 - [ ] Step 7 — Docker and local stack
 - [ ] Step 8 — CI/CD and security scanning
 - [ ] Step 9 — Terraform and AWS EKS
@@ -33,7 +33,7 @@ The current ReleaseGuard foundation includes:
 - Release create, list, search, filter, retrieve, update, delete, statistics, and readiness APIs.
 - Deterministic readiness scoring, risk classification, blocker explanations, and lifecycle enforcement.
 - A 23-test backend suite with real PostgreSQL integration and a 90% coverage gate.
-- A React and TypeScript interface that performs a real backend health check.
+- A responsive React and TypeScript control center with statistics, server-backed filters, complete release CRUD, readiness controls, and lifecycle actions.
 - Pinned Python and JavaScript dependency trees.
 - Secret-safe example environment files and repository ignore rules.
 - Local runtime baselines of Python 3.12 and Node.js 22.
@@ -47,4 +47,4 @@ releaseguard/
 └── docs/       Product, setup, and delivery documentation
 ```
 
-See [docs/LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md) for the exact commands and an explanation of the structure.
+See [docs/LOCAL_DEVELOPMENT.md](docs/LOCAL_DEVELOPMENT.md) for the exact commands and [docs/FRONTEND.md](docs/FRONTEND.md) for the dashboard architecture and workflow.

@@ -317,16 +317,16 @@ The UI will not reuse TaskBoard names, text, personal data, or component layout 
 The application itself is complete when:
 
 ```text
-[ ] Alembic creates the releases table from an empty database
+[x] Alembic creates the releases table from an empty database
 [ ] FastAPI exposes every documented endpoint
-[ ] Readiness and risk calculations match this specification
-[ ] Invalid lifecycle transitions are rejected
-[ ] At least nine automated tests pass
-[ ] React provides complete create, read, update, and delete workflows
-[ ] Filters and dashboard statistics work
-[ ] The interface is responsive and has loading, empty, and error states
+[x] Readiness and risk calculations match this specification
+[x] Invalid lifecycle transitions are rejected
+[x] At least nine automated tests pass
+[x] React provides complete create, read, update, and delete workflows
+[x] Filters and dashboard statistics work
+[x] The interface is responsive and has loading, empty, and error states
 [ ] /health, /ready, and /metrics return valid responses
-[ ] No TaskBoard branding or copied application content remains
+[x] No TaskBoard branding or copied application content remains
 ```
 
 ## 16. Demonstration story
