@@ -3,6 +3,7 @@
 .idea/
 .vscode/
 *.swp
+~$*.pptx
 
 # Local environment files and secrets
 .env
