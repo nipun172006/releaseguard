@@ -4,7 +4,7 @@ This folder contains the editable project presentation and verified evidence for
 
 ## Ready artifacts
 
-- `ReleaseGuard-DevSecOps-Capstone-v2.pptx` — 10-slide editable presentation.
+- `ReleaseGuard-DevSecOps-Capstone.pptx` — 10-slide editable presentation.
 - `evidence/aws-vpc.png` — temporary AWS VPC.
 - `evidence/aws-eks-cluster.png` — active EKS control plane.
 - `evidence/aws-eks-worker.png` — healthy managed worker.
@@ -16,6 +16,7 @@ This folder contains the editable project presentation and verified evidence for
 - `evidence/backend-metrics.png` — application Prometheus metrics.
 - `evidence/git-commits.png` — meaningful Git history and passing commit checks.
 - `evidence/github-actions.png` — successful tests, frontend checks, image builds, security scans, and publishing.
+- `evidence/trivy-scan.png` — successful HIGH/CRITICAL vulnerability scans for both runtime images.
 - `evidence/ghcr-backend.png` — public backend image with immutable commit-SHA tag.
 - `evidence/ghcr-frontend.png` — public frontend image with immutable commit-SHA tag.
 - `evidence/prometheus-target-up.png` — healthy `releaseguard-backend` scrape target.

@@ -71,7 +71,7 @@ The browser reaches the Nginx frontend. Nginx serves the compiled React files an
 ```text
 releaseguard/
 ├── .github/workflows/     CI/CD pipeline
-├── backend/               FastAPI, migrations, and 23 tests
+├── backend/               FastAPI, migrations, and 24 tests
 ├── frontend/              React dashboard and Nginx image
 ├── terraform/             AWS VPC and EKS infrastructure
 ├── k8s/                   Namespace bootstrap manifest
@@ -80,7 +80,7 @@ releaseguard/
 ├── monitoring/            Prometheus and Grafana values
 ├── docs/                  Detailed implementation notes
 ├── demo/                  Presentation and submission evidence
-└── compose.yaml           Local three-service stack
+└── docker-compose.yml     Local three-service stack
 ```
 
 ## Run locally with Docker Compose
@@ -121,7 +121,7 @@ Detailed manual Python and Node.js setup is in [docs/LOCAL_DEVELOPMENT.md](docs/
 
 ## Automated tests
 
-The backend has 23 tests covering readiness scoring, risk rules, validation, CRUD, filters, statistics, lifecycle enforcement, liveness, and database readiness. The test fixtures require a database whose name ends in `_test` and roll each test back to keep test data isolated.
+The backend has 24 tests covering readiness scoring, risk rules, validation, CRUD, filters, statistics, lifecycle enforcement, liveness, metrics, and database readiness. The test fixtures require a database whose name ends in `_test` and roll each test back to keep test data isolated.
 
 ```bash
 cd backend
@@ -151,6 +151,8 @@ ghcr.io/nipun172006/releaseguard-frontend:<git-sha>
 ```
 
 No registry password is stored in the repository. The workflow uses GitHub's short-lived `GITHUB_TOKEN` and grants `packages: write` only to the image job. See [docs/CI_CD.md](docs/CI_CD.md).
+
+Verified pipeline: [successful CI/CD run for commit `fcd9491`](https://github.com/nipun172006/releaseguard/actions/runs/38966071778).
 
 ## Terraform and AWS EKS
 
@@ -226,9 +228,9 @@ The `releaseguard-backend` Prometheus target was verified `UP`, the Grafana data
 
 ## Evidence and presentation
 
-- [10-slide editable project presentation](demo/ReleaseGuard-DevSecOps-Capstone-v2.pptx)
+- [10-slide editable project presentation](demo/ReleaseGuard-DevSecOps-Capstone.pptx)
 - [Timed final-video narration script](demo/DEMO_SCRIPT.md)
-- [Manual screenshot and submission checklist](demo/README.md)
+- [Evidence and submission checklist](demo/README.md)
 - [AWS VPC evidence](demo/evidence/aws-vpc.png)
 - [AWS EKS cluster evidence](demo/evidence/aws-eks-cluster.png)
 - [AWS EKS worker evidence](demo/evidence/aws-eks-worker.png)
@@ -238,6 +240,7 @@ The `releaseguard-backend` Prometheus target was verified `UP`, the Grafana data
 - [EKS-hosted application evidence](demo/evidence/eks-application.png)
 - [Git commit history](demo/evidence/git-commits.png)
 - [Successful GitHub Actions pipeline](demo/evidence/github-actions.png)
+- [Trivy scan output for both images](demo/evidence/trivy-scan.png)
 - [Backend GHCR package](demo/evidence/ghcr-backend.png)
 - [Frontend GHCR package](demo/evidence/ghcr-frontend.png)
 - [Docker Compose health](demo/evidence/docker-compose.png)

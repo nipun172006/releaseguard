@@ -40,11 +40,11 @@ Say:
 
 ## 3. Tests, security, and CI/CD — 75 seconds
 
-Show the GitHub Actions workflow and the successful run for commit `9f67199`. Point out backend tests, the 90 percent coverage gate, frontend lint and build, Docker image builds, Trivy scans, and GHCR publishing.
+Show the GitHub Actions workflow and the latest successful main-branch run. Point out backend tests, the 90 percent coverage gate, frontend lint and build, Docker image builds, Trivy scans, and GHCR publishing.
 
 Say:
 
-> Every push must pass 23 backend tests, the coverage gate, frontend checks, container builds, and Trivy scanning. Only a successful main-branch run publishes backend and frontend images to GHCR. The images use the full Git commit SHA, which makes each deployment traceable and immutable.
+> Every push must pass 24 backend tests, the coverage gate, frontend checks, container builds, and Trivy scanning. Only a successful main-branch run publishes backend and frontend images to GHCR. The images use the full Git commit SHA, which makes each deployment traceable and immutable.
 
 ## 4. Terraform and AWS evidence — 75 seconds
 

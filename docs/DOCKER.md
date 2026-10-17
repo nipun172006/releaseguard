@@ -31,7 +31,7 @@ Only the frontend and backend are bound to `127.0.0.1`. PostgreSQL is reachable 
 - `backend/docker-entrypoint.sh` applies committed Alembic migrations before Uvicorn starts.
 - `frontend/Dockerfile` runs `npm ci` and the TypeScript/Vite production build in Node, then copies only `dist/` into an unprivileged Nginx image.
 - `frontend/nginx.conf` serves the single-page application, caches fingerprinted assets, adds basic security headers, and proxies backend routes.
-- `compose.yaml` defines health-aware startup order, the private network, published localhost ports, restart behavior, and persistent storage.
+- `docker-compose.yml` defines health-aware startup order, the private network, published localhost ports, restart behavior, and persistent storage.
 - Both `.dockerignore` files prevent local environments, dependencies, test output, and secrets from entering build contexts.
 
 The Node and Python toolchains exist only in builder stages. They are not copied into the frontend runtime image, which reduces size and attack surface.

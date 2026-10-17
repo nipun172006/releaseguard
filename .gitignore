@@ -34,6 +34,5 @@ terraform.tfvars
 crash.log
 kubeconfig*
 
-# Local presentation build and validation artifacts
-.codex-finalizer/
-.codex-presentation/
+# Local build, capture, and validation artifacts
+.local-work/
