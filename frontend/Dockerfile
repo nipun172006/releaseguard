@@ -14,7 +14,7 @@ ENV VITE_API_BASE_URL="$VITE_API_BASE_URL"
 RUN npm run build
 
 
-FROM nginxinc/nginx-unprivileged:1.30.6-alpine3.24 AS runtime
+FROM nginxinc/nginx-unprivileged:1.31.7-alpine3.24 AS runtime
 
 USER root
 RUN apk upgrade --no-cache
