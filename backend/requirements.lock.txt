@@ -1,4 +1,4 @@
-# Exact Step 4 runtime environment for reproducible CI and container builds.
+# Exact runtime environment for reproducible CI and container builds.
 alembic==1.20.0
 annotated-doc==0.0.5
 annotated-types==0.8.0

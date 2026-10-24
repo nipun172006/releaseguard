@@ -1,6 +1,6 @@
-# ReleaseGuard submission guide
+# ReleaseGuard project artifacts
 
-This folder contains the editable project presentation and verified evidence for the final DevSecOps submission.
+This folder contains the editable project presentation and the evidence captured while validating the delivery workflow.
 
 ## Ready artifacts
 
@@ -24,18 +24,8 @@ This folder contains the editable project presentation and verified evidence for
 - `evidence/docker-compose.png` — healthy local database, backend, and frontend containers.
 - `evidence/tests-passed.png` — 24 passing backend tests with the 90% coverage gate satisfied.
 
-The AWS resources have already been destroyed. Do **not** recreate them for the video; show the saved evidence instead.
+The temporary AWS resources were destroyed after verification. The screenshots preserve the deployment and cleanup results.
 
-## Evidence status
+## Evidence notes
 
-The required screenshots are complete. Browser evidence is cropped to the application or service UI, and desktop command evidence is cropped to the Terminal window.
-
-## Final video
-
-Record a narrated MP4 using the order and wording in [DEMO_SCRIPT.md](DEMO_SCRIPT.md). The script uses [RECORDING_NOTE.md](RECORDING_NOTE.md) for the small truthful documentation push required during the CI/CD demonstration. Put the exported file in this folder, for example:
-
-```text
-demo/ReleaseGuard-Demo.mp4
-```
-
-Before submission, confirm that the repository is public, the MP4 plays with audible narration, and the Google Form contains the correct repository link.
+Browser images focus on the application or service UI. Command-line evidence focuses on the relevant terminal output.

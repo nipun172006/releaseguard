@@ -33,7 +33,7 @@ ReleaseGuard does not execute deployments. It is the decision and visibility lay
 4. Demonstrate real backend business logic rather than only basic CRUD storage.
 5. Remain small enough to deploy, operate, monitor, and explain end to end.
 
-## 4. Non-goals for the capstone
+## 4. Non-goals for the initial version
 
 The first version will not include:
 
@@ -44,7 +44,7 @@ The first version will not include:
 - Email, Slack, or SMS notifications.
 - Multi-tenant billing or subscription management.
 
-These are valid future improvements, but they are outside the submission-critical path.
+These are valid future improvements, but they are outside the current release.
 
 ## 5. Primary user journey
 
@@ -274,8 +274,6 @@ ReleaseGuard should feel like a professional internal engineering tool:
 - Strong information hierarchy with restrained animation.
 - Responsive behaviour for laptop, tablet, and mobile widths.
 
-The UI will not reuse TaskBoard names, text, personal data, or component layout verbatim.
-
 ## 14. Non-functional requirements
 
 ### Reliability
@@ -326,21 +324,17 @@ The application itself is complete when:
 [x] Filters and dashboard statistics work
 [x] The interface is responsive and has loading, empty, and error states
 [x] /health, /ready, and /metrics return valid responses
-[x] No TaskBoard branding or copied application content remains
 ```
 
-## 16. Demonstration story
+## 16. Example workflow
 
-The final presentation will use this scenario:
+One complete release workflow is:
 
 1. Create release `payments-api` version `2.4.0` for production.
 2. Leave the security scan and rollback plan incomplete.
-3. Show the critical-risk result and deployment blockers.
-4. Attempt to mark the release ready and show the API rejecting it.
+3. Observe the critical-risk result and deployment blockers.
+4. Attempt to mark the release ready and confirm that the API rejects it.
 5. Complete every mandatory check.
-6. Show readiness becoming 100% and risk becoming low.
+6. Confirm that readiness becomes 100% and risk becomes low.
 7. Move the release through `READY`, `DEPLOYING`, and `SUCCESS`.
 8. Generate traffic and observe application metrics in Grafana.
-9. Push a small ReleaseGuard change through its own CI/CD and GitOps workflow.
-
-This connects the product story to the DevSecOps infrastructure used to deliver it.

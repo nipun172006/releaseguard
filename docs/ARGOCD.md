@@ -58,4 +58,4 @@ Open `https://localhost:8081`. The initial username is `admin`; obtain the tempo
 argocd admin initial-password --namespace argocd
 ```
 
-The browser may warn about Argo CD's local self-signed certificate. This certificate is only for the local demonstration and must not be treated as a production TLS setup.
+The browser may warn about Argo CD's local self-signed certificate. This certificate is only for the local environment and must not be treated as a production TLS setup.

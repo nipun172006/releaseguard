@@ -1,6 +1,6 @@
 # Verified AWS deployment
 
-ReleaseGuard was deployed to a temporary Terraform-managed Amazon EKS environment in `ap-south-1` on 16 October 2026. The environment is intentionally short-lived so that final-project evidence can be captured and the resources can then be destroyed.
+ReleaseGuard was deployed to a temporary Terraform-managed Amazon EKS environment in `ap-south-1` on 16 October 2026. The environment was intentionally short-lived so the deployment could be verified before the resources were destroyed.
 
 ## Infrastructure evidence
 
@@ -38,7 +38,7 @@ The verified cloud workload contained two available frontend replicas, two avail
 {"status":"healthy","service":"ReleaseGuard API","environment":"production"}
 ```
 
-For the demonstration, a local port-forward exposes the cloud frontend without creating a chargeable AWS load balancer:
+For verification, a local port-forward exposed the cloud frontend without creating a chargeable AWS load balancer:
 
 ```bash
 kubectl port-forward -n releaseguard svc/frontend 5174:8080

@@ -61,7 +61,7 @@ The account ID and identity ARN are verification data and must not be copied int
 
 ## Final preflight result
 
-Step 2 was completed with all of these checks:
+The preflight passed with all of these checks:
 
 ```text
 [x] Required local command-line tools are installed

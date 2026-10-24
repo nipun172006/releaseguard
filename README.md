@@ -10,7 +10,7 @@ This DevSecOps capstone demonstrates the complete path from application code to 
 
 ![ReleaseGuard dashboard](demo/evidence/eks-application.png)
 
-**Project artifacts:** [Download the 10-slide presentation (.pptx)](demo/ReleaseGuard-DevSecOps-Capstone.pptx) · [Demo recording script](demo/DEMO_SCRIPT.md) · [Submission evidence](demo/README.md)
+**Project resources:** [Download the 10-slide presentation (.pptx)](demo/ReleaseGuard-DevSecOps-Capstone.pptx) · [Review the deployment evidence](demo/README.md)
 
 ## Core features
 
@@ -81,7 +81,7 @@ releaseguard/
 ├── argocd/                Argo CD Application manifest
 ├── monitoring/            Prometheus and Grafana values
 ├── docs/                  Detailed implementation notes
-├── demo/                  Presentation and submission evidence
+├── demo/                  Presentation and deployment evidence
 └── docker-compose.yml     Local three-service stack
 ```
 
@@ -231,8 +231,7 @@ The `releaseguard-backend` Prometheus target was verified `UP`, the Grafana data
 ## Evidence and presentation
 
 - [10-slide editable project presentation](demo/ReleaseGuard-DevSecOps-Capstone.pptx)
-- [Timed final-video narration script](demo/DEMO_SCRIPT.md)
-- [Evidence and submission checklist](demo/README.md)
+- [Evidence index](demo/README.md)
 - [AWS VPC evidence](demo/evidence/aws-vpc.png)
 - [AWS EKS cluster evidence](demo/evidence/aws-eks-cluster.png)
 - [AWS EKS worker evidence](demo/evidence/aws-eks-worker.png)
@@ -250,16 +249,14 @@ The `releaseguard-backend` Prometheus target was verified `UP`, the Grafana data
 - [Prometheus target health](demo/evidence/prometheus-target-up.png)
 - [Grafana application dashboard](demo/evidence/grafana-dashboard.png)
 
-The narrated MP4 walkthrough is the final user-recorded submission artifact. Its demo order is: presentation, codebase, GitHub Actions, Terraform and AWS, Argo CD, Kubernetes resources, Prometheus target, Grafana dashboard, and teardown evidence.
-
 ## Known limitations
 
-- Authentication and organization-level authorization are outside the capstone scope.
+- Authentication and organization-level authorization are not implemented.
 - The application records deployment decisions but does not execute external deployments.
-- The learning Helm chart stores PostgreSQL data in `emptyDir`; replacing the database Pod loses demo data.
+- The Helm chart stores PostgreSQL data in `emptyDir`; replacing the database Pod loses temporary data.
 - Prometheus and Grafana also use temporary local storage.
 - The AWS example uses one public-subnet worker to control cost and is not production high availability.
-- The Helm Secret contains an obvious demo placeholder; production should use AWS Secrets Manager or another external secret system.
+- The Helm Secret contains a development placeholder; production should use AWS Secrets Manager or another external secret system.
 - TLS, DNS, alerting, autoscaling, and a remote Terraform state backend are future improvements.
 
 ## Safe cleanup
@@ -278,17 +275,4 @@ cd terraform
 terraform destroy
 ```
 
-Always wait for Terraform to report successful destruction and verify that no ReleaseGuard EKS cluster, worker instance, or VPC remains before closing the evidence session.
-
-## Project status
-
-- [x] Application, API, database, and frontend
-- [x] Automated tests and 90% coverage gate
-- [x] Docker and Docker Compose
-- [x] GitHub Actions, Trivy, and GHCR
-- [x] Terraform VPC and AWS EKS evidence deployment
-- [x] Kubernetes and Helm
-- [x] Argo CD GitOps
-- [x] Prometheus and Grafana
-- [x] Documentation and presentation
-- [ ] Narrated MP4 walkthrough and final submission form
+Always wait for Terraform to report successful destruction and verify that no ReleaseGuard EKS cluster, worker instance, or VPC remains.

@@ -6,7 +6,7 @@ Prometheus collects those measurements every 15 seconds. Grafana queries Prometh
 
 ## Why the monitoring installation is small
 
-The capstone requires application monitoring, so the local values install one Prometheus server and one Grafana server. Alertmanager, Pushgateway, node-exporter, kube-state-metrics, and persistent volumes are disabled because they are not required for this demonstration. This keeps Minikube understandable and resource-conscious.
+The local values install one Prometheus server and one Grafana server for application-level monitoring. Alertmanager, Pushgateway, node-exporter, kube-state-metrics, and persistent volumes are disabled because this environment does not use them. This keeps Minikube resource-conscious.
 
 ## Install
 

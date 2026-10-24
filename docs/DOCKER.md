@@ -1,6 +1,6 @@
 # Docker and Local Stack
 
-Step 7 packages ReleaseGuard into the same style of immutable application images that CI and Kubernetes will use later. Docker Compose connects those images to PostgreSQL for a repeatable local environment.
+ReleaseGuard uses the same immutable application images in local development, CI, and Kubernetes. Docker Compose connects those images to PostgreSQL for a repeatable local environment.
 
 ## Architecture
 

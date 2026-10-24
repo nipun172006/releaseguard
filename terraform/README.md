@@ -12,9 +12,9 @@ The design follows the course's module-based Terraform structure. It stays inten
 
 ## Why this learning cluster uses public subnets
 
-The course reference places worker nodes in private subnets and uses a NAT gateway for outbound traffic. That is a good production pattern, but a NAT gateway has an hourly charge. This short-lived learning cluster instead places its single worker node in the public subnets and does not create a NAT gateway. The EKS security group still controls inbound traffic to the node.
+A production setup normally places worker nodes in private subnets and uses a NAT gateway for outbound traffic, but a NAT gateway has an hourly charge. This short-lived learning cluster instead places its single worker node in the public subnets and does not create a NAT gateway. The EKS security group still controls inbound traffic to the node.
 
-The VPC still spans two availability zones because EKS expects a multi-zone network and the grading rubric requires at least two public subnets. One `m7i-flex.large` node provided enough memory for the application, Argo CD, Prometheus, and Grafana during the credits-funded evidence run while avoiding the cost of a second worker. The request was accepted for this account in `ap-south-1`, but eligibility, pricing, and availability can vary by account and region. This trades high availability for lower cost and is appropriate only for a temporary student environment.
+The VPC spans two availability zones because EKS requires subnets in at least two different availability zones. One `m7i-flex.large` node provided enough memory for the application, Argo CD, Prometheus, and Grafana during the credits-funded verification run while avoiding the cost of a second worker. The request was accepted for this account in `ap-south-1`, but eligibility, pricing, and availability can vary by account and region. This trades high availability for lower cost and is appropriate only for a temporary learning environment.
 
 ## What each file does
 
@@ -64,7 +64,7 @@ The saved plan makes sure `apply` uses the exact changes that were reviewed.
 
 ## Cost warning and cleanup
 
-The EKS control plane, EC2 worker node, EBS volume, public IPv4 address, and any load balancer can consume AWS credits or incur hourly charges. Exact prices can change. Build and test locally first, create this cluster only for the final evidence window, and then remove it:
+The EKS control plane, EC2 worker node, EBS volume, public IPv4 address, and any load balancer can consume AWS credits or incur hourly charges. Exact prices can change. Build and test locally first, create this cluster only for a short verification window, and then remove it:
 
 ```bash
 terraform destroy

@@ -13,7 +13,7 @@ The chart creates:
 - one PostgreSQL Deployment and ClusterIP Service;
 - two backend replicas behind a ClusterIP Service;
 - two frontend replicas behind a ClusterIP Service;
-- one Secret for the demo database password; and
+- one Secret for the development database password; and
 - one Ingress that sends `/api` to the backend and `/` to the frontend.
 
 ClusterIP keeps application services internal to Kubernetes. Ingress is the single HTTP entry point and performs path-based routing.
@@ -72,7 +72,7 @@ Then open `http://localhost:5173`. The Minikube ingress is tested separately to 
 
 ## Configuration and secrets
 
-The password in `values.yaml` is an obvious local-demo value, not a real credential. For a temporary external cluster, override it without committing the value:
+The password in `values.yaml` is an obvious local development value, not a real credential. For a temporary external cluster, override it without committing the value:
 
 ```bash
 helm upgrade --install releaseguard helm/releaseguard \
@@ -80,7 +80,7 @@ helm upgrade --install releaseguard helm/releaseguard \
   --set-string database.password='temporary-password'
 ```
 
-A production system would use an external secret manager and persistent PostgreSQL storage. The capstone chart intentionally uses temporary `emptyDir` database storage so it stays understandable and does not require an additional cloud storage driver. Data is lost if the database Pod is replaced.
+A production system would use an external secret manager and persistent PostgreSQL storage. The current chart uses temporary `emptyDir` database storage and does not require an additional cloud storage driver. Data is lost if the database Pod is replaced.
 
 ## Uninstall
 

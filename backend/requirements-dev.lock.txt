@@ -1,4 +1,4 @@
-# Exact Step 5 test environment for reproducible local and CI verification.
+# Exact test environment for reproducible local and CI verification.
 alembic==1.20.0
 annotated-doc==0.0.5
 annotated-types==0.8.0

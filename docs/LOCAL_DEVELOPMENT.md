@@ -1,6 +1,6 @@
 # Local Development
 
-This document explains how to run and test the Step 7 ReleaseGuard application locally. The complete stack can now run through Docker Compose, while the manual commands remain useful when actively developing one service.
+This document explains how to run and test ReleaseGuard locally. The complete stack runs through Docker Compose, while the manual commands remain useful when actively developing one service.
 
 ## Why the project has two applications
 
@@ -130,7 +130,7 @@ npm run dev
 
 Open `http://localhost:5173`. The status card calls the backend `/health` endpoint, proving the two applications can communicate.
 
-The Step 6 interface now provides the complete application workflow: dashboard statistics, server-backed search and filters, release creation and editing, readiness evidence controls, detail inspection, allowed lifecycle actions, and draft deletion. See [FRONTEND.md](FRONTEND.md) for the data flow and component responsibilities.
+The interface provides the complete application workflow: dashboard statistics, server-backed search and filters, release creation and editing, readiness evidence controls, detail inspection, allowed lifecycle actions, and draft deletion. See [FRONTEND.md](FRONTEND.md) for the data flow and component responsibilities.
 
 ## Environment files
 
