@@ -3,5 +3,5 @@ fastapi==0.143.2
 pydantic-settings==2.16.0
 psycopg[binary]==3.3.6
 prometheus-client==0.26.0
-SQLAlchemy==2.1.4
+SQLAlchemy==2.1.5
 uvicorn[standard]==0.54.0
