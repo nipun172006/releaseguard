@@ -51,10 +51,15 @@ runtime images. `ignore-unfixed: true` keeps the gate actionable by blocking
 only findings that currently have an upstream fix. During pipeline development,
 Trivy found 65 HIGH and 3 CRITICAL fixable CVEs in the older Nginx 1.28 Alpine
 runtime, including vulnerabilities in Nginx and OpenSSL. Updating the runtime
-to the patched Nginx 1.30.6 / Alpine 3.24 image cleared the gate. A successful
-scan means no fixable HIGH or CRITICAL CVE was detected in the package
-databases available to that workflow run; it does not prove the image is free
-from every possible security issue.
+to Nginx 1.30.6 / Alpine 3.24 cleared that gate. During the final audit, a newer
+Trivy database then identified a fixed HIGH-severity issue in the image's
+`brotli-libs` package. The runtime build now applies Alpine security updates
+before returning to its non-root user, which installed the fixed package and
+cleared the new finding. This is why scanning every build matters: a previously
+clean image can gain a known finding as vulnerability data changes. A successful
+scan means no fixable HIGH or CRITICAL CVE was detected in the package databases
+available to that workflow run; it does not prove the image is free from every
+possible security issue.
 
 ## Reading a run
 
