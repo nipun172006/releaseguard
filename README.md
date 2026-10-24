@@ -10,6 +10,8 @@ This DevSecOps capstone demonstrates the complete path from application code to 
 
 ![ReleaseGuard dashboard](demo/evidence/eks-application.png)
 
+**Project artifacts:** [Download the 10-slide presentation (.pptx)](demo/ReleaseGuard-DevSecOps-Capstone.pptx) · [Demo recording script](demo/DEMO_SCRIPT.md) · [Submission evidence](demo/README.md)
+
 ## Core features
 
 - Create, search, filter, edit, and delete release records.
@@ -44,7 +46,7 @@ flowchart LR
     EKS --> Frontend[React + Nginx]
     Frontend --> Backend[FastAPI]
     Backend --> PostgreSQL[(PostgreSQL)]
-    Backend --> Metrics[/metrics]
+    Backend --> Metrics["GET /metrics"]
     Metrics --> Prometheus[Prometheus]
     Prometheus --> Grafana[Grafana]
 ```
