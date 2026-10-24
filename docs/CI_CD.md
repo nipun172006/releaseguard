@@ -63,7 +63,7 @@ dependency graph makes the gate visible: the two quality jobs must be green
 before both container jobs run. Each container log contains the image build,
 the Trivy table, and the final GHCR push with the exact SHA tag.
 
-Verified example: [successful CI/CD run for commit `fcd9491`](https://github.com/nipun172006/releaseguard/actions/runs/38966071778). The corresponding frontend and backend Trivy summaries are saved in [`demo/evidence/trivy-scan.png`](../demo/evidence/trivy-scan.png).
+Use the live [CI/CD workflow history](https://github.com/nipun172006/releaseguard/actions/workflows/ci-cd.yml) to inspect the newest run. A successful four-job run is preserved in [`demo/evidence/github-actions.png`](../demo/evidence/github-actions.png), and the corresponding frontend and backend Trivy summaries are saved in [`demo/evidence/trivy-scan.png`](../demo/evidence/trivy-scan.png).
 
 For local checks before pushing:
 

@@ -152,7 +152,7 @@ ghcr.io/nipun172006/releaseguard-frontend:<git-sha>
 
 No registry password is stored in the repository. The workflow uses GitHub's short-lived `GITHUB_TOKEN` and grants `packages: write` only to the image job. See [docs/CI_CD.md](docs/CI_CD.md).
 
-Verified pipeline: [successful CI/CD run for commit `fcd9491`](https://github.com/nipun172006/releaseguard/actions/runs/38966071778).
+Live verification: [CI/CD workflow history](https://github.com/nipun172006/releaseguard/actions/workflows/ci-cd.yml). A successful four-job run is also preserved in the [GitHub Actions evidence](demo/evidence/github-actions.png).
 
 ## Terraform and AWS EKS
 

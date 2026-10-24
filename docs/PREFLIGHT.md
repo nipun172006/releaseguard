@@ -16,7 +16,7 @@ Checked on 16 October 2026 on macOS ARM64.
 | Docker daemon | Ready | Docker Desktop server 28.5.1 |
 | Docker Compose | Ready | 2.40.3 |
 | Terraform | Ready | 1.15.8 |
-| kubectl | Ready with compatibility check pending | Client 1.37.1; final client/server compatibility will be checked after selecting the EKS version |
+| kubectl | Verified for project commands | Client 1.37.1 successfully managed the evidence clusters; use kubectl 1.36 or 1.35 to stay within the supported version skew when recreating EKS 1.35 |
 | Helm | Ready | 4.3.1 |
 | AWS CLI | Ready and authenticated | 2.38.1 |
 | GitHub CLI | Ready and authenticated | 2.95.0 |
@@ -59,9 +59,9 @@ aws eks list-clusters --region ap-south-1
 
 The account ID and identity ARN are verification data and must not be copied into project documentation or screenshots unless masked.
 
-## Remaining gate
+## Final preflight result
 
-Step 2 is complete only when:
+Step 2 was completed with all of these checks:
 
 ```text
 [x] Required local command-line tools are installed

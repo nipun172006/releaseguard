@@ -52,9 +52,9 @@ The first node-group request used `t3.large`. This account's AWS Free plan rejec
 InvalidParameterCombination - The specified instance type is not eligible for Free Tier.
 ```
 
-The failed node group launched no EC2 instance. It was removed, the eligible types were queried with the AWS CLI, and the configuration was changed to `m7i-flex.large`. AWS reported that type as Free Tier eligible in `ap-south-1`, and the replacement worker became healthy in about one minute.
+The failed node group launched no EC2 instance. It was removed, the instance types accepted for this account were queried with the AWS CLI, and the configuration was changed to `m7i-flex.large`. AWS accepted the replacement request in `ap-south-1`, and the worker became healthy in about one minute. This records what happened in this temporary, credits-funded evidence run; it is not a universal free-tier guarantee.
 
-This is why the instance type is a Terraform variable: account eligibility and regional availability can change, while the infrastructure design remains the same.
+This is why the instance type is a Terraform variable: account eligibility, pricing, and regional availability can change, while the infrastructure design remains the same.
 
 ## Verified safe teardown
 

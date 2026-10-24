@@ -304,7 +304,7 @@ The UI will not reuse TaskBoard names, text, personal data, or component layout 
 
 - FastAPI exposes Prometheus metrics.
 - Logs are written to standard output.
-- Grafana visualizes request rate, latency, errors, and replica health.
+- Grafana visualizes total requests, request rate, and average request duration.
 
 ### Portability
 
@@ -318,14 +318,14 @@ The application itself is complete when:
 
 ```text
 [x] Alembic creates the releases table from an empty database
-[ ] FastAPI exposes every documented endpoint
+[x] FastAPI exposes every documented endpoint
 [x] Readiness and risk calculations match this specification
 [x] Invalid lifecycle transitions are rejected
 [x] At least nine automated tests pass
 [x] React provides complete create, read, update, and delete workflows
 [x] Filters and dashboard statistics work
 [x] The interface is responsive and has loading, empty, and error states
-[ ] /health, /ready, and /metrics return valid responses
+[x] /health, /ready, and /metrics return valid responses
 [x] No TaskBoard branding or copied application content remains
 ```
 

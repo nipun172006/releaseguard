@@ -14,7 +14,7 @@ The design follows the course's module-based Terraform structure. It stays inten
 
 The course reference places worker nodes in private subnets and uses a NAT gateway for outbound traffic. That is a good production pattern, but a NAT gateway has an hourly charge. This short-lived learning cluster instead places its single worker node in the public subnets and does not create a NAT gateway. The EKS security group still controls inbound traffic to the node.
 
-The VPC still spans two availability zones because EKS expects a multi-zone network and the grading rubric requires at least two public subnets. One `m7i-flex.large` node provides enough memory for the application, ArgoCD, Prometheus, and Grafana during the final demonstration without paying for a second node. AWS reports this type as Free Tier eligible for this account in `ap-south-1`; eligibility can vary by account and region, so verify it before applying. This trades high availability for lower cost and is appropriate only for a temporary student environment.
+The VPC still spans two availability zones because EKS expects a multi-zone network and the grading rubric requires at least two public subnets. One `m7i-flex.large` node provided enough memory for the application, Argo CD, Prometheus, and Grafana during the credits-funded evidence run while avoiding the cost of a second worker. The request was accepted for this account in `ap-south-1`, but eligibility, pricing, and availability can vary by account and region. This trades high availability for lower cost and is appropriate only for a temporary student environment.
 
 ## What each file does
 

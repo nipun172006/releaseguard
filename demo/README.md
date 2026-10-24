@@ -32,7 +32,7 @@ The required screenshots are complete. Browser evidence is cropped to the applic
 
 ## Final video
 
-Record a narrated MP4 using the order and wording in [DEMO_SCRIPT.md](DEMO_SCRIPT.md). Put the exported file in this folder, for example:
+Record a narrated MP4 using the order and wording in [DEMO_SCRIPT.md](DEMO_SCRIPT.md). The script uses [RECORDING_NOTE.md](RECORDING_NOTE.md) for the small truthful documentation push required during the CI/CD demonstration. Put the exported file in this folder, for example:
 
 ```text
 demo/ReleaseGuard-Demo.mp4
