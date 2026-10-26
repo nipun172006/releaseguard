@@ -131,6 +131,8 @@ jobs:
           context: ./${{ matrix.service }}
           file: ./${{ matrix.service }}/Dockerfile
           load: true
+          no-cache: true
+          pull: true
           push: false
           tags: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
           labels: |

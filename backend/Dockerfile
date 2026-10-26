@@ -20,7 +20,10 @@ ENV PATH="/opt/venv/bin:$PATH" \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
-RUN groupadd --system --gid 10001 releaseguard \
+RUN apt-get update \
+    && apt-get upgrade --yes \
+    && rm -rf /var/lib/apt/lists/* \
+    && groupadd --system --gid 10001 releaseguard \
     && useradd --system --uid 10001 --gid releaseguard --home-dir /app releaseguard
 
 WORKDIR /app
