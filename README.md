@@ -10,7 +10,7 @@ This DevSecOps capstone demonstrates the complete path from application code to 
 
 ![ReleaseGuard dashboard](demo/evidence/eks-application.png)
 
-**Project resources:** [Watch the project demo](https://www.loom.com/share/7c4929e0b00a486dbd120cfd4b2c39e2) · [Download the 10-slide presentation (.pptx)](demo/ReleaseGuard-DevSecOps-Capstone.pptx) · [Review the deployment evidence](demo/README.md)
+**Project resources:** [Watch the project demo](demo/VIDEO.md) · [Download the 10-slide presentation (.pptx)](demo/ReleaseGuard-DevSecOps-Capstone.pptx) · [Review the deployment evidence](demo/README.md)
 
 ## Core features
 
@@ -230,7 +230,7 @@ The `releaseguard-backend` Prometheus target was verified `UP`, the Grafana data
 
 ## Evidence and presentation
 
-- [Project demo video](https://www.loom.com/share/7c4929e0b00a486dbd120cfd4b2c39e2)
+- [Project demo video](demo/VIDEO.md)
 - [10-slide editable project presentation](demo/ReleaseGuard-DevSecOps-Capstone.pptx)
 - [Evidence index](demo/README.md)
 - [AWS VPC evidence](demo/evidence/aws-vpc.png)

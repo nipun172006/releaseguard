@@ -4,7 +4,7 @@ This folder contains the editable project presentation and the evidence captured
 
 ## Ready artifacts
 
-- [Project demo video](https://www.loom.com/share/7c4929e0b00a486dbd120cfd4b2c39e2)
+- [`VIDEO.md`](VIDEO.md) — link to the presentation and project demonstration.
 - `ReleaseGuard-DevSecOps-Capstone.pptx` — 10-slide editable presentation.
 - `evidence/aws-vpc.png` — temporary AWS VPC.
 - `evidence/aws-eks-cluster.png` — active EKS control plane.
