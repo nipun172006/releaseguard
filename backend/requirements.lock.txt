@@ -20,7 +20,7 @@ prometheus-client==0.26.0
 python-dotenv==1.2.4
 PyYAML==6.0.3
 SQLAlchemy==2.1.4
-starlette==1.8.0
+starlette==1.9.0
 typing-inspection==0.4.4
 typing_extensions==4.16.0
 uvicorn==0.54.0
